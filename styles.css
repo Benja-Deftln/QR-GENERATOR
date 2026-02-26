@@ -1,0 +1,119 @@
+/* Importar fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Fondo con degradado animado */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientAnim 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+@keyframes gradientAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Tarjeta con efecto Cristal (Glassmorphism) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Estilo del Input */
+.input-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Contenedor del QR */
+#contenedorQR {
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Botón de Descarga */
+.btn-download {
+    margin-top: 25px;
+    background: white;
+    color: #333;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: none; /* Se activa con JS */
+}
+
+.btn-download.active {
+    display: inline-block;
+}
+
+.btn-download:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}

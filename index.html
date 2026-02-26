@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Designer 2026</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div class="glass-card">
+        <h1>QR Generator</h1>
+        <p>Elegante, rápido y gratuito</p>
+
+        <div class="input-group">
+            <label>Pega tu URL</label>
+            <input type="text" id="url" placeholder="https://ejemplo.com" oninput="generarQR()">
+        </div>
+
+        <div id="contenedorQR"></div>
+
+        <button onclick="descargarQR()" id="btnDescargar" class="btn-download">
+            Descargar PNG
+        </button>
+    </div>
+
+    <script>
+        const contenedor = document.getElementById("contenedorQR");
+        const btn = document.getElementById("btnDescargar");
+        const qr = new QRCode(contenedor, { width: 200, height: 200 });
+
+        function generarQR() {
+            const texto = document.getElementById("url").value;
+            if (texto.trim() !== "") {
+                qr.makeCode(texto);
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        }
+
+        function descargarQR() {
+            const img = contenedor.querySelector('img');
+            const link = document.createElement('a');
+            link.download = 'codigo-qr.png';
+            link.href = img.src;
+            link.click();
+        }
+    </script>
+</body>
+</html>
